@@ -1,0 +1,45 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "factoryName": {
+            "type": "string",
+            "metadata": "Data Factory name",
+            "defaultValue": "rbTestDF01"
+        }
+    },
+    "variables": {
+        "factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+    },
+    "resources": [
+        {
+            "name": "[concat(parameters('factoryName'), '/rbTestAirflow01')]",
+            "type": "Microsoft.DataFactory/factories/integrationRuntimes",
+            "apiVersion": "2018-06-01",
+            "properties": {
+                "type": "Airflow",
+                "description": "rbTestAirflow01",
+                "typeProperties": {
+                    "computeProperties": {
+                        "location": "East US",
+                        "computeSize": "Small",
+                        "extraNodes": 0,
+                        "enableAutoscale": false,
+                        "clusterIP": "51.8.27.182"
+                    },
+                    "airflowProperties": {
+                        "airflowVersion": "2.6.3",
+                        "airflowWebUrl": "https://9f110636361724.eastus.airflow.svc.datafactory.azure.com/login/",
+                        "airflowRequirements": [],
+                        "enableAADIntegration": true,
+                        "enableTriggerers": false,
+                        "airflowEntityReferences": [],
+                        "encryptedSecrets": [],
+                        "secrets": []
+                    }
+                }
+            },
+            "dependsOn": []
+        }
+    ]
+}

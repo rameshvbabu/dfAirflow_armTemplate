@@ -1,0 +1,55 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "subscription": {
+            "value": "d139c340-3741-4f54-8e5a-885bf56430d8"
+        },
+        "resourceGroup": {
+            "value": "rbTestRG"
+        },
+        "name": {
+            "value": "rbTestDF01"
+        },
+        "version": {
+            "value": "V2"
+        },
+        "location": {
+            "value": "eastus"
+        },
+        "vNetEnabled": {
+            "value": false
+        },
+        "publicNetworkAccess": {
+            "value": true
+        },
+        "privateEndpoints": {
+            "value": []
+        },
+        "gitConfigureLater": {
+            "value": true
+        },
+        "tagsByResource": {
+            "value": {
+                "Microsoft.DataFactory/factories": {
+                    "Name": "rbTestDF"
+                }
+            }
+        },
+        "userAssignedIdentitiesStr": {
+            "value": "{\"type\": \"SystemAssigned,UserAssigned\", \"userAssignedIdentities\": {\"\": {}"
+        },
+        "vaultBaseUrl": {
+            "value": ""
+        },
+        "keyName": {
+            "value": ""
+        },
+        "keyVersion": {
+            "value": ""
+        },
+        "enableCMK": {
+            "value": false
+        }
+    }
+}
