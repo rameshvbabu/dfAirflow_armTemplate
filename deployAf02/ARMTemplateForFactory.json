@@ -25,12 +25,25 @@
                         "computeSize": "Small",
                         "extraNodes": 0,
                         "enableAutoscale": false,
-                        "clusterIP": "51.8.27.182"
+                        "clusterIP": "4.236.238.58"
                     },
                     "airflowProperties": {
                         "airflowVersion": "2.6.3",
-                        "airflowWebUrl": "https://9f110636361724.eastus.airflow.svc.datafactory.azure.com/login/",
-                        "airflowRequirements": [],
+                        "airflowWebUrl": "https://b0c90698801724.eastus.airflow.svc.datafactory.azure.com/login/",
+                        "gitSyncProperties": {
+                            "gitServiceType": "Github",
+                            "gitCredentialType": "PAT",
+                            "repo": "https://github.com/UlCloudDwEDMA/airflow_sendmail.git",
+                            "branch": "dev",
+                            "username": "UlCloudDwEDMA",
+                            "encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJTZWN1cmVTdHJpbmciLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQDNDMUNFRkY5LURCQkQtNDAwNC1BODcyLTJBQUNDQzkwOUFDOV9jNDZlNmY1Zi03OThlLTQ4N2ItOTYzMS1lODU2OTA2YTBhMDQiDQp9"
+                        },
+                        "airflowConfigurationOverrides": {
+                            "AIRFLOW__SCHEDULER__PARSING_PROCESSES": "8"
+                        },
+                        "airflowRequirements": [
+                            "azure-storage-blob==12.16.0"
+                        ],
                         "enableAADIntegration": true,
                         "enableTriggerers": false,
                         "airflowEntityReferences": [],

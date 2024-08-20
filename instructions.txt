@@ -1,0 +1,94 @@
+# Creating datafactory 
+
+$ New-AzResourceGroupDeployment -Name deployDF -TemplateFile .\template.json -TemplateParameterFile .\parameters.json -ResourceGroupName rbTestRG 
+
+Ex: - 
+PS C:\Users\32946\dfAirflow_armTemplate> cd .\deployDF01\
+PS C:\Users\32946\Downloads\rbTestDF> New-AzResourceGroupDeployment -Name deployDF -TemplateFile .\template.json -TemplateParameterFile .\parameters.json -ResourceGroupName rbTestRG  
+
+PS C:\Users\32946\Downloads\rbTestDF> New-AzResourceGroupDeployment -Name deployDF -TemplateFile .\template.json -TemplateParameterFile .\parameters.json -ResourceGroupName rbTestRG 
+
+
+DeploymentName          : deployDF
+ResourceGroupName       : rbTestRG
+ProvisioningState       : Succeeded
+Timestamp               : 8/19/2024 10:56:19 AM
+Mode                    : Incremental
+TemplateLink            :
+Parameters              :
+                          Name                         Type                       Value
+                          ===========================  =========================  ==========
+                          subscription                 String                     "d139c340-3741-4f54-8e5a-885bf56430d8"
+                          resourceGroup                String                     "rbTestRG"
+                          name                         String                     "rbTestDF01"
+                          version                      String                     "V2"
+                          location                     String                     "eastus"
+                          tagsByResource               Object                     {"Microsoft.DataFactory/factories":{"Name":"rbTestDF"}}
+                          vNetEnabled                  Bool                       false
+                          publicNetworkAccess          Bool                       true
+                          privateEndpoints             Array                      []
+                          gitConfigureLater            Bool                       true
+                          gitRepoType                  String                     "FactoryVSTSConfiguration"
+                          gitAccountName               String                     ""
+                          gitProjectName               String                     ""
+                          gitRepositoryName            String                     ""
+                          gitCollaborationBranch       String                     "master"
+                          gitRootFolder                String                     "/"
+                          userAssignedIdentities       Object                     {"type":"SystemAssigned"}
+                          userAssignedIdentitiesStr    String                     "{\"type\": \"SystemAssigned,UserAssigned\", \"userAssignedIdentities\": {\"\": {}"
+                          vaultBaseUrl                 String                     ""
+                          keyName                      String                     ""
+                          keyVersion                   String                     ""        
+                          enableCMK                    Bool                       false
+                          cmkIdentity                  String                     ""
+
+Outputs                 :
+DeploymentDebugLogLevel :
+
+
+
+PS C:\Users\32946\Downloads\rbTestDF>
+
+
+======================================================================================================================================
+# Creating Airflow in datafactory 
+$ New-AzResourceGroupDeployment -Name deployDF01 -ResourceGroupName rbTestRG -TemplateFile .\ARMTemplateForFactory.json -TemplateParameterFile .\ARMTemplateParametersForFactory.json
+Ex: 
+PS C:\Users\32946\dfAirflow_armTemplate> cd .\deployAf02\
+PS C:\Users\32946\Downloads\arm_template-exported> New-AzResourceGroupDeployment -Name deployDF01 -ResourceGroupName rbTestRG -TemplateFile .\ARMTemplateForFactory.json -TemplateParameterFile .\ARMTemplateParametersForFactory.json
+
+PS C:\Users\32946\Downloads\arm_template-exported> New-AzResourceGroupDeployment -Name deployDF01 -ResourceGroupName rbTestRG -TemplateFile .\ARMTemplateForFactory.json -TemplateParameterFile .\ARMTemplateParametersForFactory.json
+
+
+DeploymentName          : deployDF01
+ResourceGroupName       : rbTestRG
+ProvisioningState       : Succeeded
+Timestamp               : 8/19/2024 8:26:17 AM
+Mode                    : Incremental
+TemplateLink            :
+Parameters              :
+                          Name             Type                       Value
+                          ===============  =========================  ==========
+                          factoryName      String                     "rbTestDF01"
+
+Outputs                 :
+DeploymentDebugLogLevel :
+
+
+PS C:\Users\32946\Downloads\deployAF_with_env> New-AzResourceGroupDeployment -Name deployDF -TemplateFile .\ARMTemplateForFactory.json -TemplateParameterFile .\ARMTemplateParametersForFactory.json -ResourceGroupName rbTestRG 
+
+
+DeploymentName          : deployDF
+ResourceGroupName       : rbTestRG
+ProvisioningState       : Succeeded
+Timestamp               : 8/20/2024 9:53:18 AM
+Mode                    : Incremental
+TemplateLink            :
+Parameters              :
+                          Name             Type                       Value
+                          ===============  =========================  ==========
+                          factoryName      String                     "rbTestDF01"
+
+Outputs                 :
+DeploymentDebugLogLevel :
+
